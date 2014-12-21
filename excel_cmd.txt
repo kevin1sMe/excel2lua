@@ -1,0 +1,301 @@
+#========================================================================
+#   FileName: excel_cmd.txt
+#     Author: kevinlin
+#      Desc:  配置生成的命令集合
+#   History:
+#      Date:   2014年12月15日 11:53:44
+#========================================================================
+
+#------------旧的一些配置使用旧的专属工具生成，新内容不建议再自写配置转化工具--------
+./excel2lua.py excel/Battle.xls excel/Team.xls
+./general_excel2lua_ex.py excel/Skill.xlsx
+./general_excel2lua_ex.py excel/Task.xls
+./dialogue_excel2lua.py excel/Dialogue.xls
+./general_excel2lua_ex.py excel/StrategySkill.xlsx
+./dialogue_excel2lua.py excel/OverDialogue.xls
+
+#-----------------------以下是 server 专属配置----------------------------------------
+#卡牌库（用于商城抽卡)
+./excel2lua_final.py excel/goods_info.xls CARDGRP_CONF --repeated=1 --output=s
+
+#副本基础奖励表
+./excel2lua_final.py excel/BasicPrize.xls BASIC_PRIZE_LIST --output=s
+#副本奖励表
+./excel2lua_final.py excel/Prize.xls PRIZE_LIST --repeated=1 --output=s
+./excel2lua_final.py excel/Prize.xls PRIZE_LIST_CARDX2 --repeated=1 --output=s
+./excel2lua_final.py excel/Prize.xls PRIZE_LIST_EQUIPX2 --repeated=1 --output=s
+./excel2lua_final.py excel/Prize.xls PRIZE_LIST_CARDCHIPX2 --repeated=1 --output=s
+./excel2lua_final.py excel/Prize.xls PRIZE_LIST_EQUIPCHIPX2 --repeated=1 --output=s
+./excel2lua_final.py excel/Prize.xls PRIZE_LIST_CARDEQUIPCHIPX2 --repeated=1 --output=s
+
+#副本掉落（卡牌获得后实际对应随机到的卡牌id列表)
+./excel2lua_final.py excel/CardDropSet.xlsx CARD_DROP_CONF --output=cs
+
+#战功的兑换表格，现在战功使用的表格跟goods_info.xls格式是一样的
+./excel2lua_final.py excel/BattleAchievement.xls BA_EXCHANGE_CONF --output=s
+#卡牌库（用于战功抽卡）
+./excel2lua_final.py excel/BattleAchievement.xls BA_CARDGRP_CONF --repeated=1 --output=s
+# 卡牌库
+./excel2lua_final.py excel/BattleAchievement.xls BA_GOODS_INFO --output=s
+
+./excel2lua_final.py excel/AdvActivity.xls ACT_XIANGPU --output=s
+./excel2lua_final.py excel/AdvActivity.xls ACT_XIANGPU_AWARD --output=s
+./excel2lua_final.py excel/AdvActivity.xls ACT_MONEY_TREE_TIMES --output=s
+./excel2lua_final.py excel/AdvActivity.xls ACT_MONEY_TREE_LIMIT --output=s
+./excel2lua_final.py excel/AdvActivity.xls ACT_MONEY_TREE_CRITICAL --output=s
+./excel2lua_final.py excel/AdvActivity.xls ACT_INVEST --output=s
+./excel2lua_final.py excel/AdvActivity.xls ACT_LEVEL_PACK --output=s
+
+./excel2lua_final.py excel/AdvActivity.xls ACT_CONSUME --output=s
+./excel2lua_final.py excel/AdvActivity.xls ACT_RECHARGE --output=s
+
+
+#副本buff
+./excel2lua_final.py excel/AdvActivity.xls DUNGEON_BUFF --output=s
+
+#乾坤袋配置
+./excel2lua_final.py  excel/Furnace.xlsx FURNACE_CARD  1  --repeated=1 --output=s
+./excel2lua_final.py  excel/Furnace.xlsx FURNACE_STORE_LIST --repeated=1 --output=s
+./excel2lua_final.py  excel/Furnace.xlsx TWL_STORE_LIST --repeated=1 --output=s
+./excel2lua_final.py  excel/Furnace.xlsx JJC_STORE_LIST --repeated=1 --output=s
+./excel2lua_final.py  excel/Furnace.xlsx GUILD_STORE_LIST --repeated=1 --output=s
+./excel2lua_final.py  excel/Furnace.xlsx  FURNACE_WEAPON --output=s
+
+#特殊产出
+./excel2lua_final.py excel/goods_info.xls GOODS_MSG_CONF --output=s
+
+#公告
+./excel2lua_final.py excel/Notice.xlsx NOTICE_CONF --output=s
+
+./excel2lua_final.py  excel/ZoneInfo.xlsx  ZONE_INFO --output=s
+
+./excel2lua_final.py  excel/twl.xlsx  STAGE_AWARD --output=s
+
+#聚宝
+./excel2lua_final.py  excel/rob_sys.xls JUBAO_CONF --output=s
+
+#体力问题专属补偿 
+./excel2lua_final.py excel/buchang.xlsx ENERGY_BUCHANG --output=s
+
+#混天阵每一层的奖励
+./excel2lua_final.py excel/HunTianZhen.xlsx HUNTIANZHEN_FLOOR  --output=s
+
+#邮件
+./excel2lua_final.py excel/mail_conf.xlsx MAIL_CONF --repeated=1 --output=c
+
+#-----------------------以下是 client 专属配置----------------------------------------
+
+
+#剧情对话？
+./excel2lua_final.py  excel/StoryIntroduce.xlsx  STORY_CONTENT --output=c
+
+./excel2lua_final.py  excel/Story.xls  CARD_STORY --output=c
+
+#跑马灯
+./excel2lua_final.py excel/Running_horse_info.xls HORSE_RUNNING_INFO --output=c
+
+./excel2lua_final.py excel/SmashDialogue.xlsx SMASH_CONTENT --output=c
+
+#对话
+./excel2lua_final.py excel/BattleDialogue.xlsx BATTLE_DIALOGUE --output=c
+./excel2lua_final.py excel/BattleDialogue.xlsx BATTLE_ROUND_DIALOGUE --repeated=1 --output=c
+
+#玩家升级tips
+./excel2lua_final.py excel/Tips.xlsx LEVEL_TIPS --repeated=1 --output=c
+
+#打听中的对白
+./excel2lua_final.py excel/Npc.xlsx NPC_CONFIG --output=c
+
+#错误码描述
+./excel2lua_final.py excel/err_code.xls ERR_CODE_CONF --output=c
+
+#-------------------------------------------------------------------------------------
+
+#-----------------------以下是 server && client 都需要的配置--------------------------
+#商城相关配置
+./excel2lua_final.py excel/goods_info.xls GOODS_INFO --output=cs
+
+#兑换表格（用于商城，抽卡牌，随机礼包 等)
+./excel2lua_final.py excel/goods_info.xls EXCHANGE_CONF --repeated=1 --output=cs
+
+#副本关卡配置及通关奖励表
+./excel2lua_final.py excel/Dungeon.xls  DUNGEON_LIST  --repeated=1 --subkey=1 --output=cs
+
+#玩家属性相关表
+./excel2lua_final.py excel/PlayerAttr.xls PLAYER_BASE_ATTR --output=cs
+
+#PVP矿产相关
+./excel2lua_final.py excel/mineral_info.xlsx MINERAL_INFO --output=cs
+./excel2lua_final.py excel/PVP.xls PVP_CONF --output=cs
+
+#转生配置
+./excel2lua_final.py excel/card_evolution.xlsx CARD_EVO --output=cs
+
+#活动-参北斗配置
+./excel2lua_final.py excel/AdvActivity.xls ADV_ACTIVITY_BIG_DIPPER --repeated=1 --output=cs
+./excel2lua_final.py excel/AdvActivity.xls ADV_ACTIVITY_LIST --output=cs
+
+#奇遇副本
+./excel2lua_final.py excel/AdvActivity.xls ADV_ACTIVITY_TAVERN --output=cs
+./excel2lua_final.py excel/AdvActivity.xls ADV_TAVERN_PLAYER_BONUS --output=cs
+./excel2lua_final.py excel/AdvActivity.xls ADV_TAVERN_EXPERT_ADVICE_BOUNS --output=cs
+./excel2lua_final.py excel/AdvActivity.xls ADV_TAVERN_GRAPEVINE_BONUS --output=cs
+./excel2lua_final.py excel/AdvActivity.xls ADV_TAVERN_EVENT_PRIZE --output=cs
+
+#义结梁山
+./excel2lua_final.py excel/Brotherhood.xlsx BROTHERHOOD_CARDLIST --output=cs
+./excel2lua_final.py excel/Brotherhood.xlsx BROTHERHOOD_GUESS --output=cs
+./excel2lua_final.py excel/Brotherhood.xlsx BROTHERHOOD_NPC_LEVEL --output=s
+
+#千层塔
+./excel2lua_final.py excel/Tower.xlsx TOWER_CONF --output=cs
+./excel2lua_final.py excel/Vip.xlsx VIP_CONF --output=cs
+
+#活动-景阳冈
+./excel2lua_final.py excel/AdvActivity.xls ADV_ACTIVITY_JINGYANGGANG --output=cs
+
+#全局通用的配置
+./create_global_conf.py excel/global_conf.xls GLOBAL_CONF --output=cs
+
+./excel2lua_final.py excel/pk.xlsx PK --output=cs
+./excel2lua_final.py excel/pk.xlsx TOP_AWARD --output=cs
+
+#多个环境用多个版本控制 @stanleyluo
+#./excel2lua_final.py excel/global_conf.xls VERSION_CONF --output=cs
+
+#2014年01月21日 15:18:48
+#shimmeryang 把这几个表格使用kevin的工具来进行生成了。
+#武将卡表格
+./excel2lua_final.py excel/ml_card_info.xls CARD_LIST --output=cs
+#转生数值
+./excel2lua_final.py excel/ml_card_info.xls CARD_EVO_RATIO --output=cs
+#卡牌血量、攻击力等级倍率
+./excel2lua_final.py excel/ml_card_info.xls CARD_LV_HP_RATIO --output=cs
+./excel2lua_final.py excel/ml_card_info.xls CARD_LV_ATK_RATIO --output=cs
+##战斗表
+#./excel2lua_final.py excel/Battle.xls BATTLE_LIST --repeated=1
+#战斗组表格
+#./excel2lua_final.py excel/Team.xls TEAMCARD_LIST --repeated=1
+#升级表
+./excel2lua_final.py excel/CardUpgrade.xls CARDUPGRADE_LIST --output=cs
+#物品表格
+./excel2lua_final.py excel/item_info.xls ITEM_LIST --output=cs
+#宝石表格
+./excel2lua_final.py excel/GemInfo.xls GEM_INFO_LIST --output=cs
+
+#2014年02月18日 20:05:43
+#添加一个等级开启的表格
+./excel2lua_final.py excel/OpenLevelConfig.xls OPEN_LEVEL_CONFIG --output=cs
+
+#登陆领取奖励
+./excel2lua_final.py excel/AdvActivity.xls ADV_ACTIVITY_LOGIN_REWARD --repeated=1 --output=cs
+
+#连续登陆领奖
+./excel2lua_final.py excel/AdvActivity.xls ACT_CONTINUE_LOGIN --output=cs
+./excel2lua_final.py excel/AdvActivity.xls ACT_CONTINUE_LOGIN_NEW --output=cs
+./excel2lua_final.py excel/act_continuous_pay.xls ACT_CONTINUOUS_PAY --output=cs
+
+#时迁探宝
+./excel2lua_final.py excel/act_sqtb.xls ACT_SQTB --output=cs
+#汤隆活动
+./excel2lua_final.py excel/act_tanglong.xls ACT_TL_ELEMENT --output=cs
+./excel2lua_final.py excel/act_tanglong.xls ACT_TL_PRODUCT --output=cs
+./excel2lua_final.py excel/act_tanglong.xls ACT_TL --output=cs
+
+#充值配置
+./excel2lua_final.py excel/recharge.xls RECHARGE_CONF --output=cs
+
+#装备
+./excel2lua_final.py excel/Weapon.xlsx WEAPON_LIST --output=cs
+./excel2lua_final.py excel/Weapon.xlsx WEAPON_CHIP_LIST --output=cs
+./excel2lua_final.py excel/Weapon.xlsx WEAPON_SUIT_LIST --repeated=1 --subkey=1 --output=cs
+./excel2lua_final.py excel/Weapon.xlsx WEAPON_PROMOTE_LIST --repeated=1 --subkey=1 --output=cs
+./excel2lua_final.py excel/Weapon.xlsx WEAPON_ENHANCE_BASE --output=cs
+./excel2lua_final.py excel/Weapon.xlsx WEAPON_LEVEL_RATIO --output=cs
+./excel2lua_final.py excel/Weapon.xlsx TREASURE_PROMOTE_LIST --repeated=1 --subkey=1 --output=cs
+./excel2lua_final.py excel/Weapon.xlsx RUNE_PROMOTE_LIST --output=cs
+./excel2lua_final.py excel/Weapon.xlsx WEAPON_REFINE_LIST --output=cs
+./excel2lua_final.py excel/Weapon.xlsx WEAPON_ATK_RATIO --output=cs
+./excel2lua_final.py excel/Weapon.xlsx WEAPON_DFN_RATIO --output=cs
+
+#羁绊系统
+./excel2lua_final.py excel/Fate.xlsx FATE_LIST --output=cs
+./excel2lua_final.py excel/Fate.xlsx FATE_DETAIL_LIST --output=cs
+./excel2lua_final.py excel/FateAwards.xls FATE_TASK_LIST --output=cs
+
+#图鉴
+./excel2lua_final.py excel/Handbook.xlsx CARD_BOOK --output=cs
+./excel2lua_final.py excel/Handbook.xlsx WEAPON_BOOK --output=cs
+
+#名将
+./excel2lua_final.py excel/MJBattle.xlsx MJBattle --output=cs
+./excel2lua_final.py excel/MJBattle.xlsx MJTeam --repeated=1 --subkey=1 --output=cs
+
+#卡牌碎片
+./excel2lua_final.py excel/CardChip.xlsx CARD_CHIP_CONF --output=cs
+
+#平台特权
+./excel2lua_final.py excel/AdvActivity.xls ACT_PLAT_PRIVILEGE --output=s
+
+#劫宝系统
+./excel2lua_final.py excel/rob_sys.xls ROB_RC --output=s
+./excel2lua_final.py excel/rob_sys.xls ROB_REFRESH --output=cs
+
+./excel2lua_final.py excel/AdvActivity.xls ACT_PLAYER_EVENT --output=s
+
+
+
+./excel2lua_final.py excel/pozhen.xlsx  POZHEN_CARDLIST --output=cs
+./excel2lua_final.py excel/pozhen.xlsx  POZHEN_LEVEL --output=s
+
+./excel2lua_final.py excel/act_upgrade_reward.xls ACT_UPGRADE_REWARD --output=cs
+# 神符系统
+./excel2lua_final.py excel/Rune.xlsx RUNE_BAGUA --output=cs
+./excel2lua_final.py excel/Rune.xlsx RUNE_LIST --output=cs
+
+# 公会boss
+./excel2lua_final.py excel/GuildBoss.xls GUILD_BOSS_UP --output=cs
+./excel2lua_final.py excel/GuildBoss.xls GUILD_BOSS_SACRIFICE --output=cs
+./excel2lua_final.py excel/GuildBoss.xls GUILD_BOSS_ATTR --output=cs
+./excel2lua_final.py excel/GuildBoss.xls GUILD_BOSS_PRIZE --output=s
+./excel2lua_final.py excel/GuildBoss.xls GUILD_BOSS_RATIO --output=s
+
+./excel2lua_final.py excel/act_continuous_pay.xls ACT_CONTINUOUS_PAY --output=cs
+
+#重生
+./excel2lua_final.py excel/Rebirth.xlsx REBIRTH_CARD_CONF --output=cs
+./excel2lua_final.py excel/Rebirth.xlsx REBIRTH_WEAPON_CONF --output=cs
+./excel2lua_final.py excel/Rebirth.xlsx REBIRTH_TREASURE_CONF --output=cs
+# 山寨系统
+./excel2lua_final.py excel/Guild.xlsx GUILD_BASE --output=cs
+./excel2lua_final.py excel/Guild.xlsx GUILD_PLAYER_INFO --output=cs
+./excel2lua_final.py excel/Guild.xlsx GUILD_MSG_PATTERN --output=cs
+
+# dati activity
+./excel2lua_final.py excel/act_dati.xlsx DATI_QUEST --output=cs
+./excel2lua_final.py excel/act_dati.xlsx DATI --output=cs
+
+#周卡
+./excel2lua_final.py excel/act_weekcard.xls ACT_WEEK_CARD --output=cs
+
+./excel2lua_final.py excel/invite_code.xlsx INVITE_CODE_CONF --output=cs
+
+# tower act rank reward
+./excel2lua_final.py excel/RankReward.xls TOWER_ACT_RANK_REWARD --output=cs
+./excel2lua_final.py excel/RankReward.xls HUNTIANZHEN_RANK_REWARD --output=cs
+
+#Bible
+./excel2lua_final.py excel/Bible.xlsx BIBLE_INFO --output=cs
+./excel2lua_final.py excel/Bible.xlsx BIBLE_ACTIVE_TIPS --output=c
+./excel2lua_final.py excel/Bible.xlsx BIBLE_IDLE_TIPS --output=c
+
+#混天阵
+./excel2lua_final.py  excel/HunTianZhen.xlsx HUNTIANZHEN_BUFFSTORE --output=cs
+
+
+# 时迁探营【新】
+./excel2lua_final.py excel/act_shiqian_tanbao.xls ACT_SHIQIAN_DUOBAO_GOODS --output=cs
+./excel2lua_final.py excel/act_shiqian_tanbao.xls ACT_SHIQIAN_DUOBAO_GOODSGRP --repeated=1 --output=cs
+./excel2lua_final.py excel/act_shiqian_tanbao.xls ACT_SHIQIAN_DUOBAO_GOODS_CLASS --repeated=1 --output=cs
+#-------------------------------------------------------------------------------------
+
