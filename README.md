@@ -4,7 +4,13 @@
 
 ###使用依赖
 * python2.7+
-* python一个库xlrd,请自行下载
+* python一个库xlrd, 已经作为git submodule引用了。
+
+```
+    cd xlrd
+    git submodule init
+    git submodule update
+```
 
 ###作用
 * 支持xls/xlsx的导出，视xlrd版本而定
