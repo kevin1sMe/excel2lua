@@ -5,7 +5,7 @@
 #   FileName: excel2lua_final.py
 #     Author: kevinlin
 #       Desc: 调用excel2lua_mod.py来生成配置
-#      Email: linjiang1205@qq.com
+#      Email: linjiang1205 AT qq.com
 # LastChange: 2014-12-20 16:55:32
 #========================================================================
 '''
